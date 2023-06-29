@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block title %}Access denied{% endblock %}
+{% block styling %}
+    {{ super() }}
+    h1{
+        color: red;
+    }
+{% endblock %}
+{% block content %}
+{{ super() }}
+<section>
+    <div>
+        <h1>Acces Denied...<a href="{{url_for('get_admin')}}">Log In</a></h1>
+    </div>
+</section>
+{% endblock %}

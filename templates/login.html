@@ -1,0 +1,32 @@
+ {% extends 'index.html' %}
+ {% block content %}
+ 	{{ super() }}
+ 	<section>
+		<!-- About Body -->
+		<div class="py-4 d-flex justify-content-center">
+			<form method="POST" action="{{ url_for('get_admin') }}" novalidate>
+    			<p>{{ form.name.label }} <br> {{ form.name(size=20) }}
+					{% if form.name.errors %}
+						<ul>
+							{% for error in form.name.errors %}
+							<li style="color: pink">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<p>{{ form.password.label }} <br> {{ form.password(size=20) }}
+					{% if form.password.errors %}
+						<ul>
+							{% for error in form.password.errors %}
+							<li style="color: red">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				{{ user_error }}<br>
+				{{ form.submit(class='btn btn-primary') }}
+
+			</form>
+		</div>
+	</section>
+ {% endblock %}

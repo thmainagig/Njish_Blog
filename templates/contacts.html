@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+	{% block title %}Contact{% endblock %}
+	{% block content %}
+		{{ super() }}
+		<section>
+			<!-- About Body -->
+			<div class="my-5">
+				{% if msg_sent: %}
+				<h1>Successfully sent message: </h1>
+				{% else: %}
+				<h1>Contact me: </h1>
+				{% endif %}
+				<div class="d-flex justify-content-center"><form method="post" action="{{ url_for('get_contact') }}">
+					<div>
+						<label>First Name: </label>
+						<input type="text" name="fname" placeholder="First Name" required>
+					</div>
+					<br>
+					<div>
+						<label>Last Name: </label>
+						<input type="text" name="lname" placeholder="Last Name" required><br>
+					</div>
+					<br>
+					<div>
+						<label>Email: </label>
+						<input type="text" name="email" placeholder="Email" required><br>
+					</div>
+					<br>
+					<div>
+						<label>Phone Number: </label>
+						<input type="number" name="phone" placeholder="Phone Number"><br>
+					</div>
+					<br>
+					<div>
+						<label>Message: </label>
+						<textarea placeholder="Enter message"  required></textarea><br>
+					</div>
+					<br>
+					<button class="btn btn-primary">Submit</button>
+				</form>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
+	{#% include 'footer.html' %#}
